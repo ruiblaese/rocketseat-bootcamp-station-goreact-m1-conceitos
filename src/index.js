@@ -1,42 +1,16 @@
-import React, { Component, Fragment } from "react";
-import PropTypes from "prop-types";
-import { render } from "react-dom";
+import React, { Component, Fragment } from 'react';
+import { render } from 'react-dom';
 
-class Button extends Component {
-  //consigo colocar isso pq foi instalado -> "@babel/plugin-proposal-class-properties
-  static defaultProps = {
-    children: "Salvar"
-  };
-  static propTypes = {
-    onClick: PropTypes.func.isRequired,
-    children: PropTypes.string
-  };
+import Button from './Button';
 
-  render() {
-    return (
-      <button onClick={this.props.onClick}>
-        {this.props.title} - {this.props.children}
-      </button>
-    );
-  }
-}
-
-/*
-//posso colocar isso dentro da classe pq instalei "@babel/plugin-proposal-class-properties
-Button.defaultProps = {
-  children: "Salvar"
-};
-Button.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  children: PropTypes.string
-};
-*/
+import './style.scss';
 
 class App extends Component {
   state = {
-    counter: 0
+    counter: 0,
   };
 
+  /*
   //quando componente eh montado
   componentDidMount() {}
 
@@ -50,9 +24,9 @@ class App extends Component {
 
   //quando componente deixa de existir, geralmente para limpar eventList
   componentWillMount() {}
-
+  */
   handleClick = () => {
-    alert("Botao clicado(evento do componente pai)");
+    // alert("Botao clicado(evento do componente pai)");
     /*
     this.setState(state => ({ counter: state.counter + 1 }));
     this.setState(state => ({ counter: state.counter + 1 }));
@@ -65,7 +39,7 @@ class App extends Component {
       <Fragment>
         <h1>Hello</h1>
         <h2>{this.state.counter}</h2>
-        <Button onClick={() => alert("Button1")} />
+        <Button onClick={() => alert('Button1')} />
         <br />
         <Button title="Envia(propriedade)" onClick={this.handleClick}>
           Envia(dentro-children)
@@ -75,4 +49,4 @@ class App extends Component {
   }
 }
 
-render(<App />, document.getElementById("app"));
+render(<App />, document.getElementById('app'));
